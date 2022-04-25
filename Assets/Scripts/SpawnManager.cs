@@ -22,4 +22,5 @@ public class SpawnManager : MonoBehaviour
             time = 0f;
         }
     }
-}
+} 
+

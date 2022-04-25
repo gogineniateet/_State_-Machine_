@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 move = transform.right *  xInput + transform.forward * zInput;
         controller.Move(move * playerSpeed * Time.deltaTime);
-
     }
 
 }
