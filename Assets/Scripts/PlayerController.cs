@@ -6,9 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
     public float playerSpeed = 12f;
-    public Transform gunFirePoint;
     Animator animator;
-
+    public Transform gunFirePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +24,32 @@ public class PlayerController : MonoBehaviour
         float zInput = Input.GetAxis("Vertical");
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            animator.SetTrigger("isRunning");
             PlayerRun(xInput, zInput);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckEnemyGotHit();
         }
     }
 
+    private void CheckEnemyGotHit()
+    {
+        RaycastHit hitInfo;
+        if (Physics.Raycast(gunFirePoint.position, gunFirePoint.forward, out hitInfo, 100f))
+        {
+            GameObject hitEnemy = hitInfo.collider.gameObject;
+            if (hitEnemy.tag == "Enemy")
+            {
+                hitEnemy.SetActive(false);
+            }
+        }
+    }
+
+
     private void PlayerRun(float xInput, float zInput)
     {
-        Vector3 move = transform.right * xInput + transform.forward * zInput;
+        Vector3 move = transform.right *  xInput + transform.forward * zInput;
         controller.Move(move * playerSpeed * Time.deltaTime);
 
     }

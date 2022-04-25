@@ -2094,6 +2094,7 @@ GameObject:
   - component: {fileID: 1624897935202521027}
   - component: {fileID: 1400895426553616513}
   - component: {fileID: 1400895426553616514}
+  - component: {fileID: 6198277797456323320}
   m_Layer: 0
   m_Name: Ugg
   m_TagString: Enemy
@@ -2179,6 +2180,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &6198277797456323320
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646834474827206826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5648675904584967375
 GameObject:
   m_ObjectHideFlags: 0
