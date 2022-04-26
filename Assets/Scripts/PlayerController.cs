@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     public Transform gunFirePoint;
     public ParticleSystem particleSystem;
+    public GameObject Blood;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
             if (hitEnemy.tag == "Enemy")
             {
                 hitEnemy.SetActive(false);
+                Instantiate(Blood, hitInfo.point, Quaternion.identity);
             }
         }
     }
