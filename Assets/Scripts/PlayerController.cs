@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 12f;
     Animator animator;
     public Transform gunFirePoint;
+    public ParticleSystem particleSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +27,10 @@ public class PlayerController : MonoBehaviour
         {
             PlayerRun(xInput, zInput);
         }
-
         if (Input.GetMouseButtonDown(0))
         {
             CheckEnemyGotHit();
+            particleSystem.Play();
         }
     }
 
@@ -46,11 +47,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void PlayerRun(float xInput, float zInput)
     {
         Vector3 move = transform.right *  xInput + transform.forward * zInput;
         controller.Move(move * playerSpeed * Time.deltaTime);
     }
-
 }

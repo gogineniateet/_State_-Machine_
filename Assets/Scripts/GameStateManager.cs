@@ -10,6 +10,8 @@ public class GameStateManager : MonoBehaviour
     public Transform player;
     State currentState;
     public float time = 0f;
+    
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -163,6 +165,8 @@ public class Chase : State
 }
 public class Attack : State
 {
+    
+
     public Attack(GameObject npc, NavMeshAgent agent, Animator animator, Transform playerPosition) : base(npc, agent, animator, playerPosition)
     {
         stateName = STATE.ATTACK;
@@ -171,6 +175,9 @@ public class Attack : State
     {
         animator.SetTrigger("isShooting");
         base.Enter();
+       
+
+
 
     }
     public override void Update()
@@ -186,6 +193,7 @@ public class Attack : State
     {
         animator.ResetTrigger("isShooting");
         base.Exit();
+        
     }
 
 
@@ -204,11 +212,7 @@ public class Death : State
         base.Enter();
 
     }
-    public override void Update()
-    {
 
-
-    }
     public override void Exit()
     {
         animator.ResetTrigger("isSleeping");
